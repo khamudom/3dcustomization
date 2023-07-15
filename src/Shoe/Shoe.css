@@ -1,0 +1,57 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f2f2f2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  display: flex;
+  border-radius: 13px;
+  box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  background-color: white;
+}
+
+.canvas {
+  width: 40vw;
+  height: 40vh;
+  background: white;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  margin: 0 24px;
+}
+
+.colors h2 {
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.custom-color {
+  margin-bottom: 24px;
+}
+
+.custom-color p {
+  margin-bottom: 12px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  column-gap: 10px;
+}
+
+.color-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
