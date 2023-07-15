@@ -54,10 +54,54 @@ const ShoeModel = ({ ...props }) => {
   );
 };
 
+// Lights
+function KeyLight({ brightness, color }) {
+  return (
+    <rectAreaLight
+      width={3}
+      height={3}
+      color={color}
+      intensity={brightness}
+      position={[-2, 0, 5]}
+      lookAt={[0, 0, 0]}
+      penumbra={1}
+      castShadow
+    />
+  );
+}
+function FillLight({ brightness, color }) {
+  return (
+    <rectAreaLight
+      width={3}
+      height={3}
+      intensity={brightness}
+      color={color}
+      position={[2, 1, 4]}
+      lookAt={[0, 0, 0]}
+      penumbra={2}
+      castShadow
+    />
+  );
+}
+
+function RimLight({ brightness, color }) {
+  return (
+    <rectAreaLight
+      width={2}
+      height={2}
+      intensity={brightness}
+      color={color}
+      position={[1, 4, -2]}
+      rotation={[0, 180, 0]}
+      castShadow
+    />
+  );
+}
+
 const Shoe = () => {
-  const [meshColor, setMeshColor] = React.useState('#000000');
+  const [meshColor, setMeshColor] = React.useState('#0E2B6E');
   const [lacesColor, setLacesColor] = React.useState('#ffffff');
-  const [stripeColor, setStripeColor] = React.useState('#ffffff');
+  const [stripeColor, setStripeColor] = React.useState('#1df91d');
 
   const handleMeshColorChange = (newColor) => {
     setMeshColor(newColor);
@@ -78,14 +122,16 @@ const Shoe = () => {
           <div className="canvas">
             <Canvas>
               <React.Suspense fallback={null}>
-                <ambientLight intensity={0.6} />
+                <ambientLight intensity={0.5} />
                 <spotLight
                   position={[10, 10, 10]}
                   intensity={0.4}
                   angle={0.15}
                   penumbra={1}
-                  castShadow
                 />
+                <KeyLight brightness={5.6} color={'#fff'} />
+                <FillLight brightness={2.6} color={'#fff'} />
+                <RimLight brightness={84} color={'#fff'} />
                 <ShoeModel
                   customColors={{
                     mesh: meshColor,
